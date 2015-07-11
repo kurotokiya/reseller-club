@@ -2,7 +2,9 @@
 
 require './vendor/autoload.php';
 
-$rcapi = new ResellerClub\ResellerClub('606194','Ac6oAXyHLQAqPJv97sG6nsnfyLkSi2cG');
+$cfg = require './config.php';
+
+$rcapi = new ResellerClub\ResellerClub($cfg['userid'], $cfg['apikey']);
 
 $res = $rcapi->auth()
              ->param('domain-name', 'tokiya')
