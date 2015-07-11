@@ -1,0 +1,18 @@
+{
+    "name": "kurotokiya/reseller-club",
+    "description": "A simple API for ResellerClub",
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^6.0"
+    },
+    "autoload":{
+        "classmap": ["src/"]
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tokiya Kurosaki",
+            "email": "kurotokiya@gmail.com"
+        }
+    ]
+}
