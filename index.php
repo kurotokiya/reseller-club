@@ -3,15 +3,11 @@
 require './vendor/autoload.php';
 
 $cfg = require './config.php';
+define('RC_USERID', $cfg['userid']);
+define('RC_APIKEY', $cfg['apikey']);
 
-$rcapi = new ResellerClub\ResellerClub($cfg['userid'], $cfg['apikey']);
+$rcapi = new ResellerClub\Common\Pricing\CustomerPrice($cfg['userid'], $cfg['apikey']);
 
-$res = $rcapi->auth()
-             ->param('domain-name', 'tokiya')
-             ->param('domain-name', 'sorahost')
-             ->param('tlds', 'com')
-             ->param('tlds', 'me')
-             ->get('domains/available')
-             ->result();
+$res = $rcapi->response();
 
 echo $res."\n";
