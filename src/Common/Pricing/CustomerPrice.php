@@ -12,6 +12,6 @@ use \ResellerClub\ResellerClub;
 
 class CustomerPrice extends ResellerClub {
     public function response(){
-        return $this->auth()->post('products/customer-price')->result();
+        return $this->auth()->get('products/customer-price')->result();
     }
 }
