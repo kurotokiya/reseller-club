@@ -1,6 +1,6 @@
-<?php namespace ResellerClub\Common\Pricing;
+<?php namespace kurotokiya\ResellerClub\Common\Pricing;
 
-use \ResellerClub\ResellerClub;
+use \kurotokiya\ResellerClub\ResellerClub;
 
 /**
  * Desc: Gets the generic Customer Pricing.
