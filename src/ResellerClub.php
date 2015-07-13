@@ -13,7 +13,7 @@ class ResellerClub {
         $this->apikey = $apikey;
         $this->client = new \GuzzleHttp\Client([
             'base_uri' => 'https://httpapi.com/api/',
-            'timeout' => 30
+            'timeout' => 300
         ]);
     }
 
