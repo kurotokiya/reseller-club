@@ -8,9 +8,9 @@ class ResellerClub {
     private $response;
     private $error;
 
-    public function __construct($userid = null, $apikey = null){
-        $this->userid = defined(RC_USERID) ? RC_USERID : $userid;
-        $this->apikey = defined(RC_APIKEY) ? RC_APIKEY : $apikey;
+    public function __construct($userid, $apikey){
+        $this->userid = $userid;
+        $this->apikey = $apikey;
         $this->client = new \GuzzleHttp\Client([
             'base_uri' => 'https://httpapi.com/api/',
             'timeout' => 30

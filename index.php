@@ -3,10 +3,7 @@
 require './vendor/autoload.php';
 
 $cfg = require './config.php';
-define('RC_USERID', $cfg['userid']);
-define('RC_APIKEY', $cfg['apikey']);
-
-$rcapi = new ResellerClub\Domains\Register();
+$rcapi = new ResellerClub\Domains\Register($cfg['userid'], $cfg['apikey']);
 
 $res = $rcapi->domain_name('ubostweb.com')
              ->years('1')
