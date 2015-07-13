@@ -28,14 +28,20 @@ class ResellerClub {
 
     public function get($action, $format = 'json'){
         $uri = $action . '.' . $format . '?' . implode('&', $this->params);
-        $this->response = $this->client->get($uri);
-        return $this;
+        try($this->response = $this->client->get($uri)){
+            return $this;
+        }catch($e){
+            return $this;
+        }
     }
 
     public function post($action, $format = 'json'){
         $uri = $action . '.' . $format . '?' . implode('&', $this->params);
-        $this->response = $this->client->post($uri);
-        return $this;
+        try($this->response = $this->client->post($uri)){
+            return $this;
+        }catch($e){
+            return $this;
+        }
     }
 
     public function result(){
