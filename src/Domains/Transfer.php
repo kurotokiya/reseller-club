@@ -3,12 +3,11 @@
 use \ResellerClub\ResellerClub;
 
 /**
- * Desc: Registers a domain name.
+ * Desc: Transfers a domain name.
  * Params:
- *  [domain_name]        Domain name that you need to Register.
- *  [years]              Number of years for which you wish to Register this domain name.
- *  [ns]                 The Name Servers of the domain name.
- *  [customer_id]        The Customer for whom you wish to Register this domain name.
+ *  [domain_name]        Specify the domain name that you want to transfer.
+ *  [auth_code]          Authorization Code (a.k.a. Domain Secret) of the domain name that you want to transfer.
+ *  [customer_id]        The Customer for whom the Order should be added.
  *  [reg_contact_id]     The Registrant Contact of the domain name.
  *  [admin_contact_id]   The Administrative Contact of the domain name.
  *  [tech_contact_id]    The Technical Contact of the domain name.
@@ -21,17 +20,13 @@ use \ResellerClub\ResellerClub;
  *  Error      A status key with value as ERROR alongwith an error message
  */
 
-class Register extends ResellerClub {
+class Transfer extends ResellerClub {
     public function domain_name($value){
         return $this->param('domain-name', $value);
     }
 
-    public function years($value){
-        return $this->param('years', $value);
-    }
-
-    public function ns($value){
-        return $this->param('ns', $value);
+    public function auth_code($value){
+        return $this->param('auth-code', $value);
     }
 
     public function customer_id($value){
@@ -67,6 +62,6 @@ class Register extends ResellerClub {
     }
 
     public function response(){
-        return $this->auth()->post('domains/register')->result();
+        return $this->auth()->post('domains/transfer')->result();
     }
 }
