@@ -6,6 +6,7 @@ class ResellerClub {
     private $client;
     private $params = [];
     private $response;
+    private $error;
 
     public function __construct($userid = null, $apikey = null){
         $this->userid = defined(RC_USERID) ? RC_USERID : $userid;
@@ -31,6 +32,7 @@ class ResellerClub {
         try{
             $this->response = $this->client->get($uri);
         }catch(\Exception $e){
+            $this->error = $e->getMessage();
             return $this;
         }
         return $this;
@@ -41,13 +43,14 @@ class ResellerClub {
         try{
             $this->response = $this->client->post($uri);
         }catch(\Exception $e){
+            $this->error = $e->getMessage();
             return $this;
         }
         return $this;
     }
 
     public function result(){
-        if(!$this->response) return false;
+        if(!$this->response) return $this->error;
         $body = $this->response->getBody();
         $result = '';
         while(!$body->eof()){
