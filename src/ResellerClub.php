@@ -29,7 +29,7 @@ class ResellerClub {
     public function get($action, $format = 'json'){
         $uri = $action . '.' . $format . '?' . implode('&', $this->params);
         try{
-            $this->response = $this->client->get($uri)
+            $this->response = $this->client->get($uri);
         }catch(\Exception $e){
             return $this;
         }
@@ -39,7 +39,7 @@ class ResellerClub {
     public function post($action, $format = 'json'){
         $uri = $action . '.' . $format . '?' . implode('&', $this->params);
         try{
-            $this->response = $this->client->post($uri)
+            $this->response = $this->client->post($uri);
         }catch(\Exception $e){
             return $this;
         }
