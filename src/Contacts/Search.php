@@ -9,7 +9,7 @@ use \ResellerClub\ResellerClub;
  *  [no_of_records] Number of Records to be returned
  *  [page_no]       Page Number for which records are required
  * Return:
- *  Success    A hash map containing the details
+ *  Success    A hash map containing the details of the Contacts that match the search criteria
  *  Error      A status key with value as ERROR alongwith an error message
  */
 
